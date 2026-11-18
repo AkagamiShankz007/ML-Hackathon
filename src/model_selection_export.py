@@ -2,7 +2,7 @@
 artifacts/model_selection/bagging: 5-fold StratifiedGroupKFold(shuffle, seed 42) grouped by trip,
 candidate Macro-F1 at threshold 0.5, observation Top-1, <=5 s-gap route continuity.
 Usage: python src/model_selection_export.py mlp|random_forest|knn
-These models use the extended feature set from models/mlp/train_mlp.py (9 base features + context, temporal and
+These models use the extended feature set from artifacts/model_selection/mlp/train_mlp.py (9 base features + context, temporal and
 road-network-consistency features), not only the nine base columns."""
 from __future__ import annotations
 import argparse, gc, json, sys, time
@@ -16,7 +16,7 @@ from sklearn.metrics import (accuracy_score, ConfusionMatrixDisplay, confusion_m
 from sklearn.model_selection import StratifiedGroupKFold
 
 ROOT = Path(__file__).resolve().parents[1]
-for p in ("src", "models", "models/mlp", "models/knn"):
+for p in ("src", "artifacts/model_selection", "artifacts/model_selection/mlp", "artifacts/model_selection/knn"):
     sys.path.insert(0, str(ROOT / p))
 import train_mlp as M                      # feature engineering + MLP definition
 import train_knn                           # GPU brute-force KNN
@@ -225,7 +225,7 @@ def write_report(out, name, cfg_key, folds, m, map_path):
 
 This is the {title}-only result, produced with the same protocol as the Bagging folder: fit and cross-validated on the 80 training trips with five trip-grouped `StratifiedGroupKFold` folds (shuffle, seed 42); the ten `student_test` trips are used only for development comparison. The evaluator partition is not present and was not used. Thresholded metrics use 0.5.
 
-**Feature-set note:** this model uses the extended {len(FE)}-feature set built by `models/mlp/train_mlp.py` (the nine base columns plus within-fix relative-distance/rank features, distance to the same road segment in the fixes 1, 2, 3 and 5 steps before/after, and road-network consistency flags between neighbouring fixes' top candidates). None of them use labels. Models trained only on the nine base columns are therefore not like-for-like with these results.
+**Feature-set note:** this model uses the extended {len(FE)}-feature set built by `artifacts/model_selection/mlp/train_mlp.py` (the nine base columns plus within-fix relative-distance/rank features, distance to the same road segment in the fixes 1, 2, 3 and 5 steps before/after, and road-network consistency flags between neighbouring fixes' top candidates). None of them use labels. Models trained only on the nine base columns are therefore not like-for-like with these results.
 
 ## Comparison-table row
 

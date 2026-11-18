@@ -1,10 +1,10 @@
-"""MLP candidate scorer for PathSnap (GPU). Usage: python models/mlp/train_mlp.py [--epochs N]"""
+"""MLP candidate scorer for PathSnap (GPU). Usage: python artifacts/model_selection/mlp/train_mlp.py [--epochs N]"""
 import argparse, json, time
 from pathlib import Path
 import numpy as np, pandas as pd, torch, torch.nn as nn
 from sklearn.metrics import f1_score, precision_score, recall_score, log_loss, confusion_matrix
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 OUT = Path(__file__).resolve().parent
 BASE = ["distance_m","log_distance","projection","segment_length_m","log_segment_length",
         "bearing_delta","gps_speed_mps","log_gps_gap_s","motion_valid"]
