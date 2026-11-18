@@ -1,5 +1,7 @@
 # PathSnap: map matching and route reconstruction
 
+**Team:** Arham Burad (PES2UG24AM025), Harshad Sachin Patil (PES2UG24AM063), G Maqdhoom Pasha (PES2UG25AM801), Arjun Dil Kumar (PES2UG24AM026) - UE24CS352A Machine Learning, PES University.
+
 PathSnap matches noisy GPS observations to a road network and reconstructs the route a vehicle travelled.
 Final system: **Bayesian-tuned Logistic Regression** scores the 16 candidate road segments of every GPS fix, and an
 **HMM / Viterbi decoder** turns those scores into a connected route. A FastAPI service runs the full pipeline on the raw
