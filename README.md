@@ -10,6 +10,7 @@ Run:
 ```bash
 python -m pip install -r requirements.txt
 python src/build_features.py
+python src/train_bagging.py
 ```
 
 The pipeline:
@@ -56,3 +57,19 @@ route.
 
 The static report map screenshot is included at
 `artifacts/dataset_exploration_map_screenshot.png`.
+
+## Model selection: Bagging
+
+`src/train_bagging.py` trains a bagged decision-tree candidate classifier. It
+uses five-fold `StratifiedGroupKFold` cross-validation grouped by trip ID on the
+80 training trips, then reports development metrics on the ten
+`student_test` trips. It writes the actual fold scores, configuration, metrics,
+saved model, comparison-table row, diagnostic plots, predictions, and a
+Folium map under `artifacts/model_selection/bagging/`. The student-testing
+partition is for development comparison only; the evaluator-testing partition
+is unavailable and must not be used for model selection.
+The map screenshot for the technical report is saved beside the HTML map.
+
+The Bagging result is an initial model entry, not a final shortlist. The
+five-model comparison charts and Bayesian hyperparameter search should be
+completed only after the remaining model experiments are run.

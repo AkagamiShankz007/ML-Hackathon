@@ -1,0 +1,17 @@
+{
+  "estimator": "DecisionTreeClassifier",
+  "criterion": "gini",
+  "max_depth": 14,
+  "min_samples_leaf": 20,
+  "class_weight": "balanced",
+  "n_estimators": 20,
+  "max_samples": 0.1,
+  "max_features": 1.0,
+  "bootstrap": true,
+  "bootstrap_features": false,
+  "n_jobs": 4,
+  "random_state": 42,
+  "cv": "StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)",
+  "primary_cv_metric": "candidate-level macro F1 at threshold 0.5",
+  "key_configuration": "20 trees; depth 14; min leaf 20; balanced class weights; 10% bootstrap sample per tree; all nine features"
+}
