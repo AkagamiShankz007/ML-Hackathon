@@ -1,0 +1,2 @@
+Model,Algorithm Family,Key Configuration,CV Macro F1-score,Top-1 Accuracy,Route continuity,Student-Test Macro F1-score,Precision,Recall,Log Loss,Training Time (s),Inference Time (ms/1k)
+LightGBM,Boosting (Gradient Boosted Trees),"n_estimators=100, lr=0.08, num_leaves=31, max_depth=7",0.7196,57.88,79.87,0.7278,0.5573,0.4282,0.0983,0.53,1.69

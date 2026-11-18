@@ -1,0 +1,5 @@
+Model,Algorithm Family,Key Configuration,CV Macro F1,Top-1 Acc,Route Cont,Test Macro F1,Log Loss,Inference
+Logistic Reg (Baseline),Linear / Probabilistic,"StandardScaler, C=1.0, L2",0.6443,52.22%,78.62%,0.6542,0.1299,0.31 ms/1k
+Logistic Reg (Improved),Linear / Probabilistic,"Balanced weights, rank+cos features",0.6828,51.40%,77.92%,0.6849,0.3231,0.15 ms/1k
+LightGBM (Baseline),Gradient Boosted Trees,"100 trees, lr=0.1, max_depth=6",0.7196,57.88%,79.87%,0.7278,0.0983,1.75 ms/1k
+LightGBM (Improved),Gradient Boosted Trees,"150 trees, pos_weight=3.0, rank+cos",0.8117,59.20%,80.08%,0.8117,0.1080,3.02 ms/1k

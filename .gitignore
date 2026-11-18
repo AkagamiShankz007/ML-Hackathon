@@ -4,3 +4,5 @@ __pycache__/
 artifacts/cache/
 artifacts/candidate_features.csv
 model_selection_data/*.csv
+*.jpeg
+
