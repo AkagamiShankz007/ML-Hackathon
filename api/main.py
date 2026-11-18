@@ -131,7 +131,7 @@ def reconstruct(req: ReconstructRequest, request: Request):
     except (ValueError, KeyError, IndexError, OSError) as e:
         raise HTTPException(422, f"Trip data could not be processed: {e}")
     m = r["metrics"] or {}
-    log.info("reconstruct trip=%s mode=%s model=%s obs=%d matched=%d breaks=%d top1=%s continuity=%s total=%.0fms", req.trip_id, req.mode,
-             r["model_name"], r["n_observations_used"], r["n_matched"], r["n_segment_breaks"], m.get("top1_accuracy"), m.get("route_continuity"),
-             r["timings_ms"]["request_total_ms"])
+    fmt = lambda v: "n/a" if v is None else f"{v:.4f}"
+    log.info("reconstruct trip=%s %s obs=%d top1=%s cont=%s %.0fms", req.trip_id, req.mode, r["n_observations_used"],
+             fmt(m.get("top1_accuracy")), fmt(m.get("route_continuity")), r["timings_ms"]["request_total_ms"])
     return r
