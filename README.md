@@ -75,7 +75,6 @@ python src/compare_models_hmm.py             # classifier vs +HMM for every comp
 python src/model_comparison_plots.py         # consolidated table + comparison plots
 python src/export_final_model.py             # artifacts/final_model/
 python src/report_figures.py                 # figures for the data findings
-python report/build_report.py                # report/PathSnap_Technical_Report.pdf (needs the Chrome browser)
 ```
 
 All random seeds are 42. Folds: `StratifiedGroupKFold(5, shuffle=True, random_state=42)` grouped by trip on the 80 training trips.
