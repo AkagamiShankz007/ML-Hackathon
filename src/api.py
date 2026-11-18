@@ -1,22 +1,29 @@
-import lightgbm as lgb
 import os
 import sys
 import time
 from pathlib import Path
 from typing import Optional
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+# Ensure both project root and src/ are in sys.path
+SRC_DIR = Path(__file__).resolve().parent
+ROOT = SRC_DIR.parent
+for p in (str(ROOT), str(SRC_DIR)):
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
+import lightgbm as lgb
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from src.hmm_viterbi import RoadNetworkHMM, FEATURE_COLUMNS, evaluate_continuity_metrics
+try:
+    from src.hmm_viterbi import RoadNetworkHMM, FEATURE_COLUMNS, evaluate_continuity_metrics
+except ImportError:
+    from hmm_viterbi import RoadNetworkHMM, FEATURE_COLUMNS, evaluate_continuity_metrics
+
 
 app = FastAPI(
     title="PathSnap API",
@@ -176,3 +183,12 @@ if UI_DIR.exists():
     @app.get("/ui")
     def serve_ui():
         return FileResponse(UI_DIR / "index.html")
+
+
+if __name__ == "__main__":
+    import uvicorn
+    print("\nStarting PathSnap FastAPI Server...")
+    print("Serving on http://0.0.0.0:8000")
+    print("Open Evaluator Dashboard in browser: http://localhost:8000/ui\n")
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
