@@ -115,6 +115,16 @@ def evaluate_all():
             "scaler_path": None,
             "features": FEATURE_COLUMNS + ["obs_dist_rank", "heading_alignment"],
             "needs_scale": False
+        },
+        {
+            "name": "Bagging (Trees)",
+            "family": "Bootstrap Aggregation",
+            "config": "20 trees, depth 14, balanced",
+            "cv_f1": 0.7725,
+            "model_path": "artifacts/model_selection/bagging/bagging_model.joblib",
+            "scaler_path": None,
+            "features": FEATURE_COLUMNS,
+            "needs_scale": False
         }
     ]
 
