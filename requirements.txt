@@ -6,3 +6,14 @@ matplotlib
 folium
 scikit-learn>=1.2,<2.0
 joblib
+optuna
+rapidfuzz
+lightgbm
+tabulate
+fastapi
+uvicorn
+httpx
+# optional: MLP/KNN stage of src/model_comparison.py (CUDA build of PyTorch)
+torch
+# optional: screenshots and the PDF report (uses the installed Chrome)
+playwright

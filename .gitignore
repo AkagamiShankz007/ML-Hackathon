@@ -6,3 +6,12 @@ artifacts/candidate_features.csv
 model_selection_data/*.csv
 *.jpeg
 
+logs/
+artifacts/cache_*.log
+artifacts/cache_*.log
+artifacts/candidates_v2/*.parquet
+artifacts/v1_original_pipeline/cache/
+artifacts/v1_original_pipeline/**/*.html
+artifacts/v1_original_pipeline/**/*.joblib
+models/
+logs_*.txt
