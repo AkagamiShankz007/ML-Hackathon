@@ -1,0 +1,2 @@
+Model,Algorithm Family,Key Configuration,CV Macro F1-score,Top-1 Accuracy,Route continuity,Student-Test Macro F1-score,Precision,Recall,Log Loss,Training Time (s),Inference Time (ms/1k)
+Logistic Regression,Linear and probabilistic,"solver=lbfgs, C=1.0, max_iter=300",0.6443,52.22,78.62,0.6542,0.5169,0.2524,0.1299,0.09,0.08

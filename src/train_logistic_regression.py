@@ -39,7 +39,6 @@ FEATURE_COLUMNS = [
     "motion_valid",
 ]
 
-
 def load_arcs_for_split(split_dir: Path) -> dict[str, np.ndarray]:
     arcs_dict = {}
     for trip_dir in split_dir.iterdir():
@@ -49,7 +48,6 @@ def load_arcs_for_split(split_dir: Path) -> dict[str, np.ndarray]:
             if arcs_path.exists():
                 arcs_dict[trip_id] = np.loadtxt(arcs_path, dtype=np.int64, ndmin=2)
     return arcs_dict
-
 
 def compute_top1_accuracy_and_continuity(
     df: pd.DataFrame, probs: np.ndarray, arcs_dict: dict[str, np.ndarray]
@@ -94,7 +92,6 @@ def compute_top1_accuracy_and_continuity(
     route_continuity = float(connected_transitions / total_transitions) if total_transitions > 0 else 0.0
 
     return top1_accuracy, route_continuity, per_trip_continuity
-
 
 def train_and_evaluate():
     print("=" * 70)
@@ -317,7 +314,6 @@ def train_and_evaluate():
     plt.close()
     print(f"Diagnostic plot saved to: {eval_plot_path}")
     print("\nTraining and evaluation finished successfully!")
-
 
 if __name__ == "__main__":
     train_and_evaluate()
