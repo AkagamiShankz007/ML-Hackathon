@@ -1,0 +1,19 @@
+{
+  "train_observations": 208417,
+  "student_test_observations": 19160,
+  "candidate_rows": 3641232,
+  "positive_candidate_rows": 207774,
+  "median_candidate_miss_rate": 0.03864946535606634,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "gps_speed_mps",
+    "gps_gap_s",
+    "in_reference_route"
+  ],
+  "folium_map": "C:\\PESU\\hektan\\artifacts\\00000001_route_map.html"
+}
