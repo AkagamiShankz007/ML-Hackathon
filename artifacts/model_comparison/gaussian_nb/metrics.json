@@ -1,0 +1,70 @@
+{
+  "model": "Gaussian Naive Bayes",
+  "key": "gaussian_nb",
+  "family": "Probabilistic (generative)",
+  "configuration": {
+    "var_smoothing": 1e-08,
+    "preprocessing": "none (scale-invariant)"
+  },
+  "random_state": 42,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "threshold": 0.5,
+  "cv_macro_f1_mean": 0.809990531248664,
+  "cv_macro_f1_std": 0.014511297732176713,
+  "cv_top1_mean": 0.8403162833483284,
+  "cv_log_loss_mean": 0.4373526096343994,
+  "final_training_macro_f1": 0.8112148097158818,
+  "final_fit_seconds": 0.3929476737976074,
+  "student_test": {
+    "accuracy": 0.9186586638830898,
+    "precision": 0.4969611153469121,
+    "recall": 0.9252139351908181,
+    "f1": 0.6466086562172274,
+    "macro_f1": 0.8003242964806587,
+    "log_loss": 0.544651448726654,
+    "top1": 0.8225991649269311,
+    "confusion_matrix": [
+      [
+        258811,
+        23092
+      ],
+      [
+        1844,
+        22813
+      ]
+    ],
+    "route_continuity": 0.9093478488432953,
+    "connected": 17374,
+    "eligible": 19106,
+    "candidate_miss_rate": 0.00026096033402922547
+  },
+  "student_test_inference_seconds": 0.03839921951293945,
+  "student_test_inference_seconds_all": [
+    0.03730893135070801,
+    0.037174224853515625,
+    0.04071450233459473
+  ],
+  "student_test_candidates": 306560,
+  "student_test_observations": 19160,
+  "cv_total_fit_seconds": 1.547717809677124,
+  "student_test_inference_seconds_first_run_under_load": 0.037125746409098305
+}

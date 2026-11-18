@@ -1,0 +1,73 @@
+{
+  "model": "LightGBM",
+  "key": "lightgbm",
+  "family": "Boosting",
+  "configuration": {
+    "n_estimators": 120,
+    "learning_rate": 0.08,
+    "num_leaves": 31,
+    "class_weight": "balanced",
+    "objective": "binary log loss"
+  },
+  "random_state": 42,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "threshold": 0.5,
+  "cv_macro_f1_mean": 0.8899345262037283,
+  "cv_macro_f1_std": 0.016368644122242385,
+  "cv_top1_mean": 0.8643346644289451,
+  "cv_log_loss_mean": 0.09937858728129488,
+  "final_training_macro_f1": 0.8983457113466715,
+  "final_fit_seconds": 5.66742205619812,
+  "student_test": {
+    "accuracy": 0.9666818893528184,
+    "precision": 0.7180338757887745,
+    "recall": 0.964513120006489,
+    "f1": 0.8232199106926512,
+    "macro_f1": 0.9024138203520338,
+    "log_loss": 0.1006645003916735,
+    "top1": 0.8526096033402922,
+    "confusion_matrix": [
+      [
+        272564,
+        9339
+      ],
+      [
+        875,
+        23782
+      ]
+    ],
+    "route_continuity": 0.9225374227991207,
+    "connected": 17626,
+    "eligible": 19106,
+    "candidate_miss_rate": 0.00026096033402922547
+  },
+  "student_test_inference_seconds": 0.06163668632507324,
+  "student_test_inference_seconds_all": [
+    0.0618131160736084,
+    0.0730600357055664,
+    0.05003690719604492
+  ],
+  "student_test_candidates": 306560,
+  "student_test_observations": 19160,
+  "cv_total_fit_seconds": 21.55553364753723,
+  "student_test_inference_seconds_first_run_under_load": 0.07762869199117024
+}

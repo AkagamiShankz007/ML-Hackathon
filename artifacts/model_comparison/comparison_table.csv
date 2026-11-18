@@ -1,0 +1,10 @@
+Model,Algorithm Family,Key Configuration,CV Macro F1-score,Top-1 Accuracy,Route continuity,Student-Test Macro F1-score,Log Loss,Inference Time (s),Training Time (s),Precision,Recall
+Logistic Regression,Linear / probabilistic,preprocessing=StandardScaler; C=1.0; class_weight=balanced; solver=lbfgs; max_iter=400; training_rows=150000,0.8031 ± 0.0155,0.811,0.9074,0.8231,0.1602,0.04,0.4,0.533,0.9624
+Gaussian Naive Bayes,Probabilistic (generative),var_smoothing=1e-08; preprocessing=none (scale-invariant),0.8100 ± 0.0145,0.8226,0.9093,0.8003,0.5447,0.038,0.4,0.497,0.9252
+Decision Tree,Tree-based,criterion=gini; max_depth=12; min_samples_leaf=50; class_weight=balanced,0.8895 ± 0.0192,0.8518,0.9237,0.9027,0.1011,0.011,62.8,0.721,0.9601
+Random Forest,"Ensemble (bagged trees, random subspaces)",n_estimators=150; max_depth=24; min_samples_leaf=10; max_samples=0.3; max_features=sqrt; criterion=gini,0.9281 ± 0.0171,0.8552,0.9246,0.9345,0.049,0.3,94.4,0.8878,0.8713
+LightGBM,Boosting,n_estimators=120; learning_rate=0.08; num_leaves=31; class_weight=balanced; objective=binary log loss,0.8899 ± 0.0164,0.8526,0.9225,0.9024,0.1007,0.062,5.7,0.718,0.9645
+Bagging (trees),Ensemble (bootstrap aggregation),"estimator=DecisionTree(depth 14, min_leaf 20, balanced); n_estimators=20; max_samples=0.1; bootstrap=True",0.9096 ± 0.0152,0.8541,0.9237,0.918,0.0852,0.316,27.5,0.7673,0.9545
+MLP,Neural network,epochs=12; h=256; depth=4; p=0.3; lr=0.002; bs=512; wd=0.01; alpha=1.0; loss=BCE + listwise softmax; preprocessing=StandardScaler,0.9318 ± 0.0168,0.8569,0.929,0.9379,0.0472,0.09,23.5,0.8721,0.9003
+KNN,Instance-based,k=50; weights=1/(euclidean distance + 1e-3); metric=euclidean on standardised features; backend=GPU brute force,0.9090 ± 0.0168,0.843,0.9183,0.9222,0.0683,111.721,0.5,0.8699,0.844
+Logistic Regression (Bayesian-tuned) [final classifier],Linear / probabilistic,C=1.3; pos_weight=1.21; n_rows=150000; poly_degree=2,0.9181 ± 0.0152,0.8399,0.9192,0.9256,0.0588,0.618,5.3,0.8585,0.8681

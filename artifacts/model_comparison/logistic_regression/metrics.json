@@ -1,0 +1,74 @@
+{
+  "model": "Logistic Regression",
+  "key": "logistic_regression",
+  "family": "Linear / probabilistic",
+  "configuration": {
+    "preprocessing": "StandardScaler",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "solver": "lbfgs",
+    "max_iter": 400,
+    "training_rows": 150000
+  },
+  "random_state": 42,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "threshold": 0.5,
+  "cv_macro_f1_mean": 0.803068688353852,
+  "cv_macro_f1_std": 0.01547305949905727,
+  "cv_top1_mean": 0.832223845157673,
+  "cv_log_loss_mean": 0.1664730709749883,
+  "final_training_macro_f1": 0.8068282132404683,
+  "final_fit_seconds": 0.44547414779663086,
+  "student_test": {
+    "accuracy": 0.9291590553235908,
+    "precision": 0.5330188679245284,
+    "recall": 0.9624041854240175,
+    "f1": 0.6860661780649638,
+    "macro_f1": 0.8230705194250046,
+    "log_loss": 0.16016668515761825,
+    "top1": 0.8109603340292275,
+    "confusion_matrix": [
+      [
+        261113,
+        20790
+      ],
+      [
+        927,
+        23730
+      ]
+    ],
+    "route_continuity": 0.9073589448340835,
+    "connected": 17336,
+    "eligible": 19106,
+    "candidate_miss_rate": 0.00026096033402922547
+  },
+  "student_test_inference_seconds": 0.04046964645385742,
+  "student_test_inference_seconds_all": [
+    0.04012751579284668,
+    0.04061293601989746,
+    0.040668487548828125
+  ],
+  "student_test_candidates": 306560,
+  "student_test_observations": 19160,
+  "cv_total_fit_seconds": 2.2189199924468994,
+  "student_test_inference_seconds_first_run_under_load": 0.042912562688191734
+}

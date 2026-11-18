@@ -1,0 +1,72 @@
+{
+  "model": "Decision Tree",
+  "key": "decision_tree",
+  "family": "Tree-based",
+  "configuration": {
+    "criterion": "gini",
+    "max_depth": 12,
+    "min_samples_leaf": 50,
+    "class_weight": "balanced"
+  },
+  "random_state": 42,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "threshold": 0.5,
+  "cv_macro_f1_mean": 0.8894981997954756,
+  "cv_macro_f1_std": 0.01924383723823146,
+  "cv_top1_mean": 0.8624544620047839,
+  "cv_log_loss_mean": 0.11025682136571333,
+  "final_training_macro_f1": 0.8985570549596367,
+  "final_fit_seconds": 62.81411337852478,
+  "student_test": {
+    "accuracy": 0.9669134916492693,
+    "precision": 0.7210208929767924,
+    "recall": 0.9601330251044328,
+    "f1": 0.8235723852429075,
+    "macro_f1": 0.902658699276074,
+    "log_loss": 0.1011025750474427,
+    "top1": 0.8518267223382046,
+    "confusion_matrix": [
+      [
+        272743,
+        9160
+      ],
+      [
+        983,
+        23674
+      ]
+    ],
+    "route_continuity": 0.9236888935412959,
+    "connected": 17648,
+    "eligible": 19106,
+    "candidate_miss_rate": 0.00026096033402922547
+  },
+  "student_test_inference_seconds": 0.011205037434895834,
+  "student_test_inference_seconds_all": [
+    0.012057781219482422,
+    0.01100015640258789,
+    0.010557174682617188
+  ],
+  "student_test_candidates": 306560,
+  "student_test_observations": 19160,
+  "cv_total_fit_seconds": 247.03844261169434,
+  "student_test_inference_seconds_first_run_under_load": 0.016701936721801758
+}

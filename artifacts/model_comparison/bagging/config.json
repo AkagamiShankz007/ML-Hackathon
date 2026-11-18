@@ -1,0 +1,27 @@
+{
+  "estimator": "DecisionTree(depth 14, min_leaf 20, balanced)",
+  "n_estimators": 20,
+  "max_samples": 0.1,
+  "bootstrap": true,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "random_state": 42
+}

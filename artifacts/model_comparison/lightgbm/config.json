@@ -1,0 +1,28 @@
+{
+  "n_estimators": 120,
+  "learning_rate": 0.08,
+  "num_leaves": 31,
+  "class_weight": "balanced",
+  "objective": "binary log loss",
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "random_state": 42
+}

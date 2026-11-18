@@ -1,0 +1,74 @@
+{
+  "model": "Random Forest",
+  "key": "random_forest",
+  "family": "Ensemble (bagged trees, random subspaces)",
+  "configuration": {
+    "n_estimators": 150,
+    "max_depth": 24,
+    "min_samples_leaf": 10,
+    "max_samples": 0.3,
+    "max_features": "sqrt",
+    "criterion": "gini"
+  },
+  "random_state": 42,
+  "features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "threshold": 0.5,
+  "cv_macro_f1_mean": 0.9280954928636114,
+  "cv_macro_f1_std": 0.01713806880869286,
+  "cv_top1_mean": 0.8655120254696606,
+  "cv_log_loss_mean": 0.05174099743399446,
+  "final_training_macro_f1": 0.9420734469760257,
+  "final_fit_seconds": 94.42527174949646,
+  "student_test": {
+    "accuracy": 0.9807965814196242,
+    "precision": 0.8878419704107777,
+    "recall": 0.8713144340349597,
+    "f1": 0.8795005628901852,
+    "macro_f1": 0.9345337608386399,
+    "log_loss": 0.04900902879157244,
+    "top1": 0.8552192066805846,
+    "confusion_matrix": [
+      [
+        279189,
+        2714
+      ],
+      [
+        3173,
+        21484
+      ]
+    ],
+    "route_continuity": 0.9245786663875223,
+    "connected": 17665,
+    "eligible": 19106,
+    "candidate_miss_rate": 0.00026096033402922547
+  },
+  "student_test_inference_seconds": 0.29950865109761554,
+  "student_test_inference_seconds_all": [
+    0.29772329330444336,
+    0.3057863712310791,
+    0.2950162887573242
+  ],
+  "student_test_candidates": 306560,
+  "student_test_observations": 19160,
+  "cv_total_fit_seconds": 341.6952316761017,
+  "student_test_inference_seconds_first_run_under_load": 0.3508036931355794
+}
