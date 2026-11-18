@@ -1,0 +1,2 @@
+model,algorithm_family,key_configuration,cv_macro_f1,cv_macro_f1_std,student_test_top1_accuracy,student_test_route_continuity,student_test_candidate_macro_f1,student_test_candidate_log_loss,student_test_inference_seconds,final_fit_seconds
+Random Forest,Bagged decision-tree ensemble,150 trees; depth 24; min leaf 10; 30% bootstrap sample per tree; sqrt features per split; Gini; 47 features,0.8283435737459429,0.02632569269492356,0.7347077244258873,0.9146341463414634,0.8612834629451711,0.06726732300533478,0.794707466654169,118.00088439998217
