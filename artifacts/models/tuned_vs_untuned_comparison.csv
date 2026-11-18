@@ -1,0 +1,7 @@
+Metric,Untuned LightGBM,Tuned LightGBM,Delta
+Cross-validation Macro F1-score,0.7585,0.7631,+0.0046
+Student-testing Top-1 Accuracy,0.5915 (59.15%),0.5947 (59.47%),+0.0032
+Student-testing Macro F1-score,0.7614,0.7637,+0.0023
+Route Continuity,0.2979 (29.79%),0.2978 (29.78%),-0.0001
+Student-testing Log Loss,0.2281,0.2396,+0.0114
+Inference Time,0.3695 s,0.3104 s,-0.0590 s

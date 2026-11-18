@@ -1,0 +1,6 @@
+Model,Algorithm Family,Key Configuration,CV Macro F1-score,Top-1 Accuracy,Route continuity,Student-Test Macro F1-score,Log Loss,Training Time (s),Inference Time (s)
+Logistic Regression,Linear and probabilistic,"StandardScaler, C=1.0, balanced, lbfgs",0.6677 +/- 0.0168,0.4778,0.1585,0.6719,0.3974,3.25,0.0230
+Gaussian Naive Bayes,Probabilistic,var_smoothing=1e-8,0.7417 +/- 0.0163,0.5258,0.1449,0.7517,0.2936,0.41,0.0391
+Decision Tree,Tree-based,"max_depth=12, min_samples_leaf=50, balanced",0.7588 +/- 0.0203,0.5629,0.2785,0.7588,0.2351,29.84,0.0230
+Random Forest,Ensemble,"n_estimators=50, max_depth=12, max_samples=0.25, balanced",0.7634 +/- 0.0198,0.5878,0.3128,0.7665,0.2262,47.85,0.2283
+LightGBM,Boosting,"n_estimators=120, lr=0.08, num_leaves=31, balanced",0.7585 +/- 0.0198,0.5915,0.2979,0.7614,0.2281,8.28,0.3695

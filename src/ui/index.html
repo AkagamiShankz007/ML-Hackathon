@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathSnap - Evaluator Interface (Laptop 2)</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary: #4338ca;
+            --primary-light: #6366f1;
+            --success: #10b981;
+            --gray-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--gray-bg); color: var(--text-dark); display: flex; flex-direction: column; height: 100vh; }
+        
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .header-title h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+        .header-title p { font-size: 13px; color: #cbd5e1; }
+        .badge { background: #4f46e5; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
+        
+        .main-container { display: flex; flex: 1; overflow: hidden; }
+        
+        /* Sidebar */
+        .sidebar { width: 360px; background: var(--card-bg); border-right: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
+        .control-group { display: flex; flex-direction: column; gap: 8px; }
+        label { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+        select, input { padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; background: white; outline: none; transition: border-color 0.2s; }
+        select:focus, input:focus { border-color: var(--primary); }
+        
+        .btn-primary {
+            background: var(--primary); color: white; border: none; padding: 12px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px;
+        }
+        .btn-primary:hover { background: #3730a3; }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+        
+        /* Metrics Cards */
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .metric-card { background: var(--gray-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+        .metric-label { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+        .metric-value { font-size: 20px; font-weight: 700; color: var(--text-dark); }
+        .metric-diff { font-size: 12px; font-weight: 600; color: var(--success); }
+        
+        /* Map Area */
+        .map-container { flex: 1; position: relative; }
+        #map { width: 100%; height: 100%; }
+        
+        /* Status Banner */
+        .status-banner { padding: 10px; border-radius: 6px; font-size: 13px; display: none; }
+        .status-banner.loading { display: block; background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+        .status-banner.error { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+        .status-banner.success { display: block; background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+        
+        .legend { background: white; padding: 12px; border-radius: 6px; font-size: 12px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .legend-line { width: 16px; height: 4px; border-radius: 2px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-title">
+        <h1>PathSnap Evaluator Dashboard</h1>
+        <p>Distributed Map-Matching & Route Reconstruction System</p>
+    </div>
+    <div class="badge">Laptop 2 Client</div>
+</header>
+
+<div class="main-container">
+    <div class="sidebar">
+        <div class="control-group">
+            <label for="apiUrl">Laptop 1 API Endpoint:</label>
+            <input type="text" id="apiUrl" value="http://localhost:8000" placeholder="http://192.168.1.X:8000" />
+        </div>
+
+        <div class="control-group">
+            <label for="tripSelect">Select Evaluation Trip:</label>
+            <select id="tripSelect">
+                <option value="">Loading trips...</option>
+            </select>
+        </div>
+
+        <button class="btn-primary" id="btnEvaluate" onclick="evaluateSelectedTrip()">
+            <span>Reconstruct Route & Evaluate</span>
+        </button>
+
+        <div id="statusBanner" class="status-banner"></div>
+
+        <div class="control-group" id="resultsSection" style="display: none;">
+            <label>Live Evaluation Metrics:</label>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-label">HMM Top-1 Accuracy</span>
+                    <span class="metric-value" id="valHmmAcc">--%</span>
+                    <span class="metric-diff" id="diffAcc">+0.0% vs Classifier</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Route Continuity</span>
+                    <span class="metric-value" id="valHmmCont">--%</span>
+                    <span class="metric-diff" id="diffCont">+0.0% vs Classifier</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Total Observations</span>
+                    <span class="metric-value" id="valObs">--</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Inference Latency</span>
+                    <span class="metric-value" id="valLatency">-- ms</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div style="font-weight: 700; margin-bottom: 8px;">Map Layers:</div>
+            <div class="legend-item">
+                <span class="legend-dot" style="background: #2563eb;"></span>
+                <span>Raw GPS Fixes (Noisy)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background: #7c3aed;"></span>
+                <span>HMM Reconstructed Path (Matched)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    let map = L.map('map').setView([12.9716, 77.5946], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let gpsLayerGroup = L.layerGroup().addTo(map);
+    let routeLayerGroup = L.layerGroup().addTo(map);
+
+    function getApiBase() {
+        return document.getElementById('apiUrl').value.replace(/\/$/, "");
+    }
+
+    async function loadTrips() {
+        const select = document.getElementById('tripSelect');
+        try {
+            const res = await fetch(`${getApiBase()}/trips`);
+            const data = await res.json();
+            select.innerHTML = '';
+            data.trips.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t.trip_id;
+                opt.textContent = `Trip ${t.trip_id} (${t.observations} obs)`;
+                select.appendChild(opt);
+            });
+        } catch (e) {
+            select.innerHTML = '<option value="">Error connecting to API</option>';
+            showStatus("Error: Unable to connect to Laptop 1 API. Ensure the backend is running.", "error");
+        }
+    }
+
+    async function evaluateSelectedTrip() {
+        const tripId = document.getElementById('tripSelect').value;
+        if (!tripId) return;
+
+        const btn = document.getElementById('btnEvaluate');
+        btn.disabled = true;
+        showStatus(`Sending inference request for Trip ${tripId} to API...`, "loading");
+
+        try {
+            const t0 = performance.now();
+            const res = await fetch(`${getApiBase()}/evaluate/${tripId}`, { method: 'POST' });
+            if (!res.ok) throw new Error(`Server returned HTTP ${res.status}`);
+            const data = await res.json();
+            
+            showStatus(`Successfully reconstructed Trip ${tripId} in ${data.processing_time_ms} ms!`, "success");
+            displayMetrics(data);
+            plotRouteOnMap(data);
+        } catch (err) {
+            showStatus(`Evaluation failed: ${err.message}`, "error");
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    function displayMetrics(data) {
+        document.getElementById('resultsSection').style.display = 'flex';
+        document.getElementById('valHmmAcc').textContent = `${(data.hmm_top1_accuracy * 100).toFixed(1)}%`;
+        document.getElementById('diffAcc').textContent = `+${(data.accuracy_improvement * 100).toFixed(1)}% vs Clf (${(data.classifier_top1_accuracy * 100).toFixed(1)}%)`;
+        
+        document.getElementById('valHmmCont').textContent = `${(data.hmm_route_continuity * 100).toFixed(1)}%`;
+        document.getElementById('diffCont').textContent = `+${(data.continuity_improvement * 100).toFixed(1)}% vs Clf (${(data.classifier_route_continuity * 100).toFixed(1)}%)`;
+        
+        document.getElementById('valObs').textContent = data.observations.toLocaleString();
+        document.getElementById('valLatency').textContent = `${data.processing_time_ms} ms`;
+    }
+
+    function plotRouteOnMap(data) {
+        gpsLayerGroup.clearLayers();
+        routeLayerGroup.clearLayers();
+
+        // 1. Draw GPS points
+        data.gps_coordinates.forEach((pt, idx) => {
+            L.circleMarker(pt, {
+                radius: 3,
+                color: '#2563eb',
+                fillColor: '#2563eb',
+                fillOpacity: 0.8
+            }).bindPopup(`GPS Observation #${idx}`).addTo(gpsLayerGroup);
+        });
+
+        // 2. Draw Reconstructed Polyline
+        if (data.predicted_route_coordinates.length > 0) {
+            const polyline = L.polyline(data.predicted_route_coordinates, {
+                color: '#7c3aed',
+                weight: 5,
+                opacity: 0.9
+            }).bindPopup(`<b>PathSnap Reconstructed Route</b><br>Trip: ${data.trip_id}<br>Top-1 Accuracy: ${(data.hmm_top1_accuracy * 100).toFixed(1)}%`).addTo(routeLayerGroup);
+
+            map.fitBounds(polyline.getBounds(), { padding: [30, 30] });
+        }
+    }
+
+    function showStatus(msg, type) {
+        const b = document.getElementById('statusBanner');
+        b.className = `status-banner ${type}`;
+        b.textContent = msg;
+    }
+
+    // Auto-load trips on startup
+    window.addEventListener('DOMContentLoaded', loadTrips);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+Metric,Classifier Only,Classifier + HMM/Viterbi,Absolute Improvement
+Observation-Level Top-1 Accuracy,0.5947 (59.47%),0.8365 (83.65%),+0.2419 (+24.19%)
+Observation Trajectory Continuity,0.8080 (80.80%),0.9918 (99.18%),+0.1838 (+18.38%)
+Deduplicated Route Topological Continuity,0.6031 (60.31%),0.9668 (96.68%),+0.3637 (+36.37%)

@@ -1,0 +1,147 @@
+[
+  {
+    "model_name": "Logistic Regression",
+    "slug": "logistic_regression",
+    "algorithm_family": "Linear and probabilistic",
+    "key_configuration": "StandardScaler, C=1.0, balanced, lbfgs",
+    "cv_macro_f1": 0.6677027261820795,
+    "cv_macro_f1_std": 0.016816498947805767,
+    "cv_top1_accuracy": 0.43948751393691615,
+    "student_test_top1_accuracy": 0.4777661795407098,
+    "student_test_route_continuity": 0.15848563968668408,
+    "student_test_macro_f1": 0.6718588622244663,
+    "student_test_positive_f1": 0.4303246777323232,
+    "student_test_precision": 0.27794807931794235,
+    "student_test_recall": 0.952508617387974,
+    "student_test_log_loss": 0.3974032998085022,
+    "student_test_roc_auc": 0.9464854320870497,
+    "training_time_s": 3.253286838531494,
+    "inference_time_s": 0.023002147674560547,
+    "confusion_matrix": [
+      [
+        243058,
+        45225
+      ],
+      [
+        868,
+        17409
+      ]
+    ]
+  },
+  {
+    "model_name": "Gaussian Naive Bayes",
+    "slug": "gaussian_nb",
+    "algorithm_family": "Probabilistic",
+    "key_configuration": "var_smoothing=1e-8",
+    "cv_macro_f1": 0.7416585729630848,
+    "cv_macro_f1_std": 0.016345656229133726,
+    "cv_top1_accuracy": 0.4588615575463567,
+    "student_test_top1_accuracy": 0.5258350730688935,
+    "student_test_route_continuity": 0.14490861618798956,
+    "student_test_macro_f1": 0.7516667212397449,
+    "student_test_positive_f1": 0.5431067842522251,
+    "student_test_precision": 0.4325806242294465,
+    "student_test_recall": 0.7294960879794277,
+    "student_test_log_loss": 0.2935999631881714,
+    "student_test_roc_auc": 0.9521436422815022,
+    "training_time_s": 0.41477131843566895,
+    "inference_time_s": 0.0390622615814209,
+    "confusion_matrix": [
+      [
+        270794,
+        17489
+      ],
+      [
+        4944,
+        13333
+      ]
+    ]
+  },
+  {
+    "model_name": "Decision Tree",
+    "slug": "decision_tree",
+    "algorithm_family": "Tree-based",
+    "key_configuration": "max_depth=12, min_samples_leaf=50, balanced",
+    "cv_macro_f1": 0.7588084540103825,
+    "cv_macro_f1_std": 0.020272794940762798,
+    "cv_top1_accuracy": 0.4947099305616779,
+    "student_test_top1_accuracy": 0.5628914405010439,
+    "student_test_route_continuity": 0.2785378590078329,
+    "student_test_macro_f1": 0.7587718963194285,
+    "student_test_positive_f1": 0.5669359078526024,
+    "student_test_precision": 0.3999145913872157,
+    "student_test_recall": 0.973518629972096,
+    "student_test_log_loss": 0.23505760427152309,
+    "student_test_roc_auc": 0.9651987196699039,
+    "training_time_s": 29.8424973487854,
+    "inference_time_s": 0.023001432418823242,
+    "confusion_matrix": [
+      [
+        261584,
+        26699
+      ],
+      [
+        484,
+        17793
+      ]
+    ]
+  },
+  {
+    "model_name": "Random Forest",
+    "slug": "random_forest",
+    "algorithm_family": "Ensemble",
+    "key_configuration": "n_estimators=50, max_depth=12, max_samples=0.25, balanced",
+    "cv_macro_f1": 0.7634253574471264,
+    "cv_macro_f1_std": 0.0197883648551885,
+    "cv_top1_accuracy": 0.5045736557841172,
+    "student_test_top1_accuracy": 0.587839248434238,
+    "student_test_route_continuity": 0.3127937336814621,
+    "student_test_macro_f1": 0.7665155863410085,
+    "student_test_positive_f1": 0.5797082531083771,
+    "student_test_precision": 0.41302983096561185,
+    "student_test_recall": 0.9719319363133994,
+    "student_test_log_loss": 0.2262054606303198,
+    "student_test_roc_auc": 0.9681109178660772,
+    "training_time_s": 47.850987911224365,
+    "inference_time_s": 0.22829794883728027,
+    "confusion_matrix": [
+      [
+        263038,
+        25245
+      ],
+      [
+        513,
+        17764
+      ]
+    ]
+  },
+  {
+    "model_name": "LightGBM",
+    "slug": "lightgbm",
+    "algorithm_family": "Boosting",
+    "key_configuration": "n_estimators=120, lr=0.08, num_leaves=31, balanced",
+    "cv_macro_f1": 0.7585023322729056,
+    "cv_macro_f1_std": 0.019771870161294808,
+    "cv_top1_accuracy": 0.5545960641045007,
+    "student_test_top1_accuracy": 0.5914926931106472,
+    "student_test_route_continuity": 0.29785900783289815,
+    "student_test_macro_f1": 0.7613910058730269,
+    "student_test_positive_f1": 0.5713553183988719,
+    "student_test_precision": 0.4039973713431077,
+    "student_test_recall": 0.9754336050774197,
+    "student_test_log_loss": 0.22814219272581615,
+    "student_test_roc_auc": 0.9682518735074853,
+    "training_time_s": 8.282109022140503,
+    "inference_time_s": 0.36946868896484375,
+    "confusion_matrix": [
+      [
+        261982,
+        26301
+      ],
+      [
+        449,
+        17828
+      ]
+    ]
+  }
+]
