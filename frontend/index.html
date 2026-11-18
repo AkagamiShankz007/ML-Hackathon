@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RouteLens</title>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">◈</span> RouteLens <small>GPS map-matching evaluator</small></div>
+  <div class="api">
+    <input id="apiUrl" spellcheck="false" aria-label="API base URL">
+    <button id="apiSave">Connect</button>
+    <span id="status" class="pill off">offline</span>
+  </div>
+</header>
+<main>
+  <aside>
+    <section>
+      <h2>Trips <span id="partition" class="muted"></span></h2>
+      <div id="msgs" class="notice" hidden></div>
+      <ul id="trips" class="trips"></ul>
+    </section>
+    <section>
+      <h2>Options</h2>
+      <div class="seg" id="mode">
+        <button data-v="hmm" class="on">Classifier + HMM</button>
+        <button data-v="classifier">Classifier only</button>
+      </div>
+      <label class="chk"><input type="checkbox" id="compare" checked> Compare with the other mode</label>
+      <button id="run" class="primary" disabled>Reconstruct route</button>
+    </section>
+    <section id="results" hidden>
+      <h2>Results</h2>
+      <div id="cards" class="cards"></div>
+      <table id="cmp"></table>
+      <details><summary>Timings &amp; data cleaning</summary><pre id="extra"></pre></details>
+    </section>
+  </aside>
+  <div class="mapwrap">
+    <div id="map"></div>
+    <div class="layers">
+      <label><input type="checkbox" id="lNet"> Road network</label>
+      <label><input type="checkbox" id="lGps" checked> GPS points</label>
+      <label><input type="checkbox" id="lSnap"> Snapped points</label>
+      <label><input type="checkbox" id="lRoute" checked> Predicted route</label>
+    </div>
+    <div class="legend" id="legend" hidden>
+      <b>Match confidence</b>
+      <i style="background:#e5484d"></i> low <i style="background:#f5a524"></i> <i style="background:#2fb36b"></i> high
+    </div>
+    <div id="busy" hidden><div class="spin"></div><span id="busyTxt">Working…</span></div>
+  </div>
+</main>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
