@@ -1,0 +1,44 @@
+{
+  "decoder_params": {
+    "alpha": 0.2273582488601345,
+    "same": 1.3679622914486833,
+    "hop1": 0.0,
+    "hop2": -6.5081863037911045,
+    "hop3": -7.828378551866722,
+    "uturn": -10.331299376240437,
+    "none": -8.941071098432468
+  },
+  "default_params": {
+    "alpha": 1.0,
+    "same": 0.0,
+    "hop1": 0.0,
+    "hop2": -1.0,
+    "hop3": -2.0,
+    "uturn": -3.0,
+    "none": -6.0
+  },
+  "relation_classes": [
+    "none",
+    "same",
+    "hop1",
+    "hop2",
+    "hop3",
+    "uturn"
+  ],
+  "transition_log_scores": {
+    "none": -8.941071510314941,
+    "same": 1.3679622411727905,
+    "hop1": 0.0,
+    "hop2": -6.508186340332031,
+    "hop3": -7.828378677368164,
+    "uturn": -10.331299781799316
+  },
+  "gap_threshold_seconds": 5.0,
+  "candidates_per_observation": 16,
+  "emission": "alpha * prior-corrected logistic logit",
+  "emission_prior_correction": "z_cal = decision_function - log(pos_weight)",
+  "tuned_on": "out-of-fold scores of the 80 training trips (observation Top-1)",
+  "optimiser": "Optuna TPE, seed 42",
+  "trials": 60,
+  "evaluated_on": "10 student-test trips (never used for tuning)"
+}

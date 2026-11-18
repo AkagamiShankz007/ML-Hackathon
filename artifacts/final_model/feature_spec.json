@@ -1,0 +1,37 @@
+{
+  "candidate_generation": "src/candidates_v2.py: 16 arcs with the smallest exact point-to-segment distance (<=40 m sub-segment index, 96 shortlisted)",
+  "model_input_order": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "cos_bearing",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "rel_dist",
+    "speed_aligned",
+    "bearing_delta_smooth",
+    "cos_bearing_smooth",
+    "speed_smooth_mps",
+    "smooth_valid",
+    "speed_aligned_smooth"
+  ],
+  "candidates_per_observation": 16,
+  "feature_notes": {
+    "bearing_delta": "|wrap(gps_bearing - arc_bearing)| in radians (pi/2 when direction unknown); one-step displacement",
+    "bearing_delta_smooth": "same, from a +-2-fix window (>=3 m displacement, no gap > 5 s)",
+    "cos_bearing / cos_bearing_smooth": "cosine of the above, 0 when direction unknown",
+    "speed_aligned / speed_aligned_smooth": "speed * cosine of the bearing difference",
+    "obs_dist_rank / rel_dist": "rank of the candidate by distance (1..16) and distance minus the closest candidate's"
+  },
+  "score": "decision_function(pipeline, X)   (logit of the class-weighted model)",
+  "calibration": {
+    "pos_weight": 1.2089177679178131,
+    "calibrated_logit": "decision_function - log(pos_weight)",
+    "probability": "sigmoid(calibrated_logit)"
+  }
+}

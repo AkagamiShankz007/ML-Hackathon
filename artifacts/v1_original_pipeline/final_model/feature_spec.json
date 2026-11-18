@@ -1,0 +1,40 @@
+{
+  "candidate_features": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid"
+  ],
+  "engineered_features": {
+    "obs_dist_rank": "rank(distance_m) among the 16 candidates of the same GPS fix (method='min')",
+    "heading_alignment": "cos(radians(bearing_delta))   [same formula as the team's train_improved.py]",
+    "speed_aligned": "gps_speed_mps * heading_alignment"
+  },
+  "model_input_order": [
+    "distance_m",
+    "log_distance",
+    "projection",
+    "segment_length_m",
+    "log_segment_length",
+    "bearing_delta",
+    "gps_speed_mps",
+    "log_gps_gap_s",
+    "motion_valid",
+    "obs_dist_rank",
+    "heading_alignment",
+    "speed_aligned"
+  ],
+  "missing_values": "fillna(0) on the nine pipeline features",
+  "candidates_per_observation": 16,
+  "score": "decision_function(pipeline, X)   (logit of the class-weighted model)",
+  "calibration": {
+    "pos_weight": 3.1816822997110736,
+    "calibrated_logit": "decision_function - log(pos_weight)",
+    "probability": "sigmoid(calibrated_logit)"
+  }
+}

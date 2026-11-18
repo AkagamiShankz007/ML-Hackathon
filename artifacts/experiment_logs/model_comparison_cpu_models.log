@@ -1,0 +1,35 @@
+logistic_regression CV fold 1/5: macro-F1=0.8238 top1=0.8584 fit=0.5s
+logistic_regression CV fold 2/5: macro-F1=0.7813 top1=0.7894 fit=0.4s
+logistic_regression CV fold 3/5: macro-F1=0.8086 top1=0.8587 fit=0.3s
+logistic_regression CV fold 4/5: macro-F1=0.8034 top1=0.8631 fit=0.5s
+logistic_regression CV fold 5/5: macro-F1=0.7982 top1=0.7915 fit=0.5s
+logistic_regression STUDENT-TEST: macro-F1=0.8231 top1=0.8110 logloss=0.1602 continuity=0.9074
+== logistic_regression done in 10s
+decision_tree CV fold 1/5: macro-F1=0.9109 top1=0.8909 fit=61.2s
+decision_tree CV fold 2/5: macro-F1=0.8660 top1=0.8298 fit=48.4s
+decision_tree CV fold 3/5: macro-F1=0.8817 top1=0.8723 fit=45.9s
+decision_tree CV fold 4/5: macro-F1=0.9079 top1=0.8990 fit=48.4s
+decision_tree CV fold 5/5: macro-F1=0.8810 top1=0.8202 fit=43.2s
+decision_tree STUDENT-TEST: macro-F1=0.9027 top1=0.8518 logloss=0.1011 continuity=0.9237
+== decision_tree done in 317s
+lightgbm CV fold 1/5: macro-F1=0.9097 top1=0.8920 fit=4.5s
+lightgbm CV fold 2/5: macro-F1=0.8736 top1=0.8333 fit=4.1s
+lightgbm CV fold 3/5: macro-F1=0.8789 top1=0.8771 fit=4.4s
+lightgbm CV fold 4/5: macro-F1=0.9053 top1=0.8977 fit=4.3s
+lightgbm CV fold 5/5: macro-F1=0.8822 top1=0.8216 fit=4.2s
+lightgbm STUDENT-TEST: macro-F1=0.9024 top1=0.8526 logloss=0.1007 continuity=0.9225
+== lightgbm done in 36s
+bagging CV fold 1/5: macro-F1=0.9283 top1=0.8927 fit=25.0s
+bagging CV fold 2/5: macro-F1=0.8952 top1=0.8344 fit=18.2s
+bagging CV fold 3/5: macro-F1=0.9063 top1=0.8775 fit=21.7s
+bagging CV fold 4/5: macro-F1=0.9222 top1=0.9009 fit=22.0s
+bagging CV fold 5/5: macro-F1=0.8959 top1=0.8219 fit=20.2s
+bagging STUDENT-TEST: macro-F1=0.9180 top1=0.8541 logloss=0.0852 continuity=0.9237
+== bagging done in 147s
+random_forest CV fold 1/5: macro-F1=0.9433 top1=0.8935 fit=61.1s
+random_forest CV fold 2/5: macro-F1=0.9034 top1=0.8342 fit=58.8s
+random_forest CV fold 3/5: macro-F1=0.9345 top1=0.8774 fit=73.4s
+random_forest CV fold 4/5: macro-F1=0.9416 top1=0.9005 fit=77.6s
+random_forest CV fold 5/5: macro-F1=0.9176 top1=0.8219 fit=70.8s
+random_forest STUDENT-TEST: macro-F1=0.9345 top1=0.8552 logloss=0.0490 continuity=0.9246
+== random_forest done in 451s

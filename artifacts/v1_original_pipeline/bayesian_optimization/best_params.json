@@ -1,0 +1,52 @@
+{
+  "best_params": {
+    "C": 8.181094935481411,
+    "pos_weight": 3.1816822997110736,
+    "n_rows": 300000,
+    "poly_degree": 2
+  },
+  "best_cv_macro_f1": 0.7959297564272407,
+  "n_trials": 40,
+  "baseline_config": {
+    "C": 1.0,
+    "pos_weight": 16.5,
+    "n_rows": 150000,
+    "poly_degree": 1
+  },
+  "search_space": {
+    "C": "log-uniform [1e-4, 1e2]",
+    "pos_weight": "log-uniform [1, 30]  (class_weight {0: 1, 1: pos_weight}; 'balanced' on this data is about 16.5)",
+    "n_rows": [
+      150000,
+      300000,
+      600000
+    ],
+    "poly_degree": [
+      1,
+      2
+    ],
+    "fixed": {
+      "solver": "lbfgs",
+      "penalty": "l2",
+      "max_iter": 400,
+      "random_state": 42,
+      "features": [
+        "distance_m",
+        "log_distance",
+        "projection",
+        "segment_length_m",
+        "log_segment_length",
+        "bearing_delta",
+        "gps_speed_mps",
+        "log_gps_gap_s",
+        "motion_valid",
+        "obs_dist_rank",
+        "heading_alignment",
+        "speed_aligned"
+      ]
+    }
+  },
+  "sampler": "TPE (Optuna), seed 42, 10 random start-up trials",
+  "objective": "mean 5-fold trip-grouped CV candidate Macro-F1 at threshold 0.5",
+  "cv": "StratifiedGroupKFold(5, shuffle, seed 42) grouped by trip on the 80 train trips"
+}

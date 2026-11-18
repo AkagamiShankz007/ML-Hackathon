@@ -1,0 +1,86 @@
+ep 1/12 loss 0.83352 val_top1 0.8015 val_logloss 0.07133
+ep 2/12 loss 0.55212 val_top1 0.8064 val_logloss 0.06447
+ep 3/12 loss 0.51805 val_top1 0.8024 val_logloss 0.06724
+ep 4/12 loss 0.50180 val_top1 0.8100 val_logloss 0.05985
+ep 5/12 loss 0.48449 val_top1 0.8104 val_logloss 0.05818
+ep 6/12 loss 0.47507 val_top1 0.8114 val_logloss 0.05840
+ep 7/12 loss 0.46522 val_top1 0.8114 val_logloss 0.05960
+ep 8/12 loss 0.45704 val_top1 0.8097 val_logloss 0.05865
+ep 9/12 loss 0.44616 val_top1 0.8085 val_logloss 0.05758
+ep 10/12 loss 0.43914 val_top1 0.8073 val_logloss 0.05849
+ep 11/12 loss 0.43187 val_top1 0.8091 val_logloss 0.05772
+ep 12/12 loss 0.42784 val_top1 0.8083 val_logloss 0.05810
+mlp CV fold 1/5: macro-F1=0.9496 top1=0.8927 fit=26.9s
+ep 1/12 loss 0.76362 val_top1 0.8120 val_logloss 0.07863
+ep 2/12 loss 0.52176 val_top1 0.8237 val_logloss 0.07402
+ep 3/12 loss 0.49356 val_top1 0.8266 val_logloss 0.06505
+ep 4/12 loss 0.47621 val_top1 0.8219 val_logloss 0.06416
+ep 5/12 loss 0.46231 val_top1 0.8198 val_logloss 0.06341
+ep 6/12 loss 0.45173 val_top1 0.8295 val_logloss 0.06259
+ep 7/12 loss 0.44318 val_top1 0.8255 val_logloss 0.06188
+ep 8/12 loss 0.43540 val_top1 0.8235 val_logloss 0.05985
+ep 9/12 loss 0.42711 val_top1 0.8289 val_logloss 0.05989
+ep 10/12 loss 0.41932 val_top1 0.8287 val_logloss 0.05965
+ep 11/12 loss 0.41261 val_top1 0.8294 val_logloss 0.05794
+ep 12/12 loss 0.40825 val_top1 0.8293 val_logloss 0.05873
+mlp CV fold 2/5: macro-F1=0.9120 top1=0.8331 fit=18.7s
+ep 1/12 loss 0.76832 val_top1 0.8607 val_logloss 0.06358
+ep 2/12 loss 0.54544 val_top1 0.8669 val_logloss 0.05450
+ep 3/12 loss 0.51184 val_top1 0.8684 val_logloss 0.05319
+ep 4/12 loss 0.48826 val_top1 0.8699 val_logloss 0.05463
+ep 5/12 loss 0.47010 val_top1 0.8692 val_logloss 0.05563
+ep 6/12 loss 0.45959 val_top1 0.8715 val_logloss 0.05380
+ep 7/12 loss 0.44784 val_top1 0.8670 val_logloss 0.05579
+ep 8/12 loss 0.43865 val_top1 0.8721 val_logloss 0.05748
+ep 9/12 loss 0.42899 val_top1 0.8716 val_logloss 0.05759
+ep 10/12 loss 0.42122 val_top1 0.8703 val_logloss 0.05835
+ep 11/12 loss 0.41261 val_top1 0.8702 val_logloss 0.05819
+ep 12/12 loss 0.40891 val_top1 0.8702 val_logloss 0.05830
+mlp CV fold 3/5: macro-F1=0.9315 top1=0.8679 fit=19.5s
+ep 1/12 loss 0.87029 val_top1 0.8011 val_logloss 0.08474
+ep 2/12 loss 0.59366 val_top1 0.8128 val_logloss 0.06718
+ep 3/12 loss 0.55942 val_top1 0.8105 val_logloss 0.06568
+ep 4/12 loss 0.53741 val_top1 0.8191 val_logloss 0.06451
+ep 5/12 loss 0.52160 val_top1 0.8153 val_logloss 0.06436
+ep 6/12 loss 0.50939 val_top1 0.8176 val_logloss 0.06504
+ep 7/12 loss 0.49760 val_top1 0.8215 val_logloss 0.06208
+ep 8/12 loss 0.48876 val_top1 0.8202 val_logloss 0.06169
+ep 9/12 loss 0.47947 val_top1 0.8193 val_logloss 0.06259
+ep 10/12 loss 0.46920 val_top1 0.8206 val_logloss 0.06189
+ep 11/12 loss 0.46043 val_top1 0.8191 val_logloss 0.06156
+ep 12/12 loss 0.45620 val_top1 0.8196 val_logloss 0.06147
+mlp CV fold 4/5: macro-F1=0.9473 top1=0.9028 fit=21.1s
+ep 1/12 loss 0.82740 val_top1 0.9043 val_logloss 0.04501
+ep 2/12 loss 0.54824 val_top1 0.9061 val_logloss 0.03703
+ep 3/12 loss 0.51594 val_top1 0.9080 val_logloss 0.03577
+ep 4/12 loss 0.49495 val_top1 0.9042 val_logloss 0.03505
+ep 5/12 loss 0.47820 val_top1 0.9085 val_logloss 0.03272
+ep 6/12 loss 0.46850 val_top1 0.9084 val_logloss 0.03286
+ep 7/12 loss 0.45747 val_top1 0.9104 val_logloss 0.03200
+ep 8/12 loss 0.44700 val_top1 0.9085 val_logloss 0.03214
+ep 9/12 loss 0.43606 val_top1 0.9083 val_logloss 0.03177
+ep 10/12 loss 0.42650 val_top1 0.9079 val_logloss 0.03230
+ep 11/12 loss 0.41992 val_top1 0.9075 val_logloss 0.03169
+ep 12/12 loss 0.41565 val_top1 0.9073 val_logloss 0.03167
+mlp CV fold 5/5: macro-F1=0.9186 top1=0.8213 fit=20.3s
+ep 1/12 loss 0.79415 val_top1 0.8756 val_logloss 0.05011
+ep 2/12 loss 0.55617 val_top1 0.8802 val_logloss 0.05167
+ep 3/12 loss 0.52816 val_top1 0.8818 val_logloss 0.04430
+ep 4/12 loss 0.51095 val_top1 0.8855 val_logloss 0.04282
+ep 5/12 loss 0.49521 val_top1 0.8853 val_logloss 0.04276
+ep 6/12 loss 0.48291 val_top1 0.8839 val_logloss 0.04314
+ep 7/12 loss 0.47270 val_top1 0.8859 val_logloss 0.04144
+ep 8/12 loss 0.46623 val_top1 0.8859 val_logloss 0.04082
+ep 9/12 loss 0.45538 val_top1 0.8865 val_logloss 0.04120
+ep 10/12 loss 0.44589 val_top1 0.8884 val_logloss 0.04041
+ep 11/12 loss 0.43841 val_top1 0.8867 val_logloss 0.04026
+ep 12/12 loss 0.43425 val_top1 0.8877 val_logloss 0.04014
+mlp STUDENT-TEST: macro-F1=0.9379 top1=0.8569 logloss=0.0472 continuity=0.9290
+== mlp done in 138s
+knn CV fold 1/5: macro-F1=0.9287 top1=0.8798 fit=0.6s
+knn CV fold 2/5: macro-F1=0.8864 top1=0.8212 fit=0.5s
+knn CV fold 3/5: macro-F1=0.9065 top1=0.8547 fit=0.8s
+knn CV fold 4/5: macro-F1=0.9219 top1=0.8831 fit=1.9s
+knn CV fold 5/5: macro-F1=0.9013 top1=0.8105 fit=4.2s
+knn STUDENT-TEST: macro-F1=0.9222 top1=0.8430 logloss=0.0683 continuity=0.9183
+== knn done in 3612s

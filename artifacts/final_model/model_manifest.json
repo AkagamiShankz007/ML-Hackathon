@@ -1,0 +1,97 @@
+{
+  "model_name": "logistic_regression_bayes_tuned+hmm",
+  "created_utc": "2026-11-18T14:16:03+00:00",
+  "classifier": {
+    "family": "Logistic Regression (Bayesian-tuned, corrected v2 features)",
+    "hyperparameters": {
+      "C": 1.2983539990298418,
+      "pos_weight": 1.2089177679178131,
+      "n_rows": 150000,
+      "poly_degree": 2
+    },
+    "fixed": {
+      "solver": "lbfgs",
+      "penalty": "l2",
+      "max_iter": 400,
+      "random_state": 42,
+      "features": [
+        "distance_m",
+        "log_distance",
+        "projection",
+        "segment_length_m",
+        "log_segment_length",
+        "bearing_delta",
+        "cos_bearing",
+        "gps_speed_mps",
+        "log_gps_gap_s",
+        "motion_valid",
+        "obs_dist_rank",
+        "rel_dist",
+        "speed_aligned",
+        "bearing_delta_smooth",
+        "cos_bearing_smooth",
+        "speed_smooth_mps",
+        "smooth_valid",
+        "speed_aligned_smooth"
+      ]
+    },
+    "random_seed": 42,
+    "trained_on": "random sample of candidate rows of the clean training trips (label-quality filter: median reference distance <= 50 m)",
+    "optimisation": {
+      "objective": "mean 5-fold trip-grouped CV candidate Macro-F1 at threshold 0.5",
+      "cv": "StratifiedGroupKFold(5, shuffle, seed 42) grouped by trip on the 80 train trips",
+      "n_trials": 30,
+      "sampler": "TPE (Optuna), seed 42, 10 random start-up trials",
+      "best_cv_macro_f1": 0.9181204098658557
+    }
+  },
+  "decoder": {
+    "type": "HMM / Viterbi over the 16 candidates per GPS fix",
+    "params": {
+      "alpha": 0.240582460253592,
+      "same": 2.5683549864021504,
+      "hop1": 0.0,
+      "hop2": -6.619491609141081,
+      "hop3": -5.237491423621897,
+      "uturn": -8.867032575312791,
+      "none": -14.246080714403606,
+      "beta": 0.0,
+      "gamma": 0.0
+    },
+    "tuned_on": "out-of-fold scores of the 80 training trips (observation Top-1)"
+  },
+  "metrics": {
+    "classifier_tuned_student_test": {
+      "macro_f1": 0.9256237920955204,
+      "top1_accuracy": 0.8399269311064718,
+      "log_loss": 0.058761893430850934,
+      "precision": 0.8585007820960173,
+      "recall": 0.8681104757269741
+    },
+    "student_test_classifier_only": {
+      "top1_accuracy": 0.8399269311064718,
+      "route_continuity": 0.9192400293101644,
+      "route_arc_precision": 0.8331360946745562,
+      "route_arc_recall": 0.8739913097454997,
+      "route_arc_f1": 0.8530748258103604
+    },
+    "student_test_with_hmm": {
+      "top1_accuracy": 0.8731210855949896,
+      "route_continuity": 0.994923060818591,
+      "route_arc_precision": 0.9786115007012622,
+      "route_arc_recall": 0.8662321539416511,
+      "route_arc_f1": 0.9189990121830754
+    }
+  },
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.9.1",
+    "pandas": "3.1.1"
+  },
+  "notes": [
+    "Reference routes are never used at inference time; they only produce the evaluation metrics inside the API.",
+    "z_cal = decision_function - log(pos_weight) is the emission input of the HMM."
+  ]
+}

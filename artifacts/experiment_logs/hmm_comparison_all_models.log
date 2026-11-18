@@ -1,0 +1,41 @@
+[I 2026-11-18 20:44:52,475] A new study created in memory with name: no-name-915cea18-d777-41ed-b2a4-95f8f580a6d6
+logistic_regression: decoder tuned in 59s {'alpha': 0.24173626863226716, 'same': 0.7774591484001159, 'hop1': 0.0, 'hop2': -6.5111798260185445, 'hop3': -4.007351375846831, 'uturn': -11.580427425956474, 'none': -10.648185788549878, 'beta': 0.0, 'gamma': 0.0}
+gaussian_nb: decoder tuned in 60s {'alpha': 0.24608024000875453, 'same': 1.578410445378928, 'hop1': 0.0, 'hop2': -7.886520078372083, 'hop3': -4.03928073692396, 'uturn': -6.869317146556316, 'none': -13.15662945529725, 'beta': 0.0, 'gamma': 0.0}
+decision_tree: decoder tuned in 60s {'alpha': 0.24202815962938437, 'same': 2.6456890027486013, 'hop1': 0.0, 'hop2': -4.0903378137010336, 'hop3': -6.399735193987157, 'uturn': -10.713203633468495, 'none': -9.883586247888658, 'beta': 0.0, 'gamma': 0.0}
+random_forest: decoder tuned in 60s {'alpha': 0.2567016758183963, 'same': 1.216635030805508, 'hop1': 0.0, 'hop2': -6.843553162510457, 'hop3': -3.264537374644006, 'uturn': -11.090574100644545, 'none': -10.512683874082185, 'beta': 0.0, 'gamma': 0.0}
+lightgbm: decoder tuned in 60s {'alpha': 0.20323212737390117, 'same': 0.8028731715089349, 'hop1': 0.0, 'hop2': -5.825423997285306, 'hop3': -3.493623226866186, 'uturn': -9.34387627217719, 'none': -10.878330784609506, 'beta': 0.0, 'gamma': 0.0}
+bagging: decoder tuned in 60s {'alpha': 0.29358956424102006, 'same': 1.0701452715327806, 'hop1': 0.0, 'hop2': -4.150850095809125, 'hop3': -1.7015124099169718, 'uturn': -9.87788449907882, 'none': -7.035504128944624, 'beta': 0.0, 'gamma': 0.0}
+mlp: decoder tuned in 60s {'alpha': 0.2444753655056461, 'same': 2.149423409313128, 'hop1': 0.0, 'hop2': -2.5930016174810064, 'hop3': -4.650793663296641, 'uturn': -9.87905916058868, 'none': -11.042856945021688, 'beta': 0.0, 'gamma': 0.0}
+                        model            partition                    method  top1_accuracy  route_continuity  route_arc_precision  route_arc_recall  route_arc_f1
+0   logistic_regression_tuned  train (out-of-fold)           classifier only         0.8538            0.9267               0.8359            0.8738        0.8544
+1   logistic_regression_tuned  train (out-of-fold)  classifier + HMM (tuned)         0.8901            0.9956               0.9748            0.8874        0.9291
+2   logistic_regression_tuned         student_test           classifier only         0.8399            0.9192               0.8331            0.8740        0.8531
+3   logistic_regression_tuned         student_test  classifier + HMM (tuned)         0.8731            0.9949               0.9786            0.8662        0.9190
+4         logistic_regression  train (out-of-fold)           classifier only         0.8298            0.9202               0.8312            0.8392        0.8352
+5         logistic_regression  train (out-of-fold)  classifier + HMM (tuned)         0.8864            0.9980               0.9752            0.9409        0.9577
+6         logistic_regression         student_test           classifier only         0.8110            0.9074               0.8286            0.8206        0.8246
+7         logistic_regression         student_test  classifier + HMM (tuned)         0.8567            0.9977               0.9751            0.9482        0.9614
+8                 gaussian_nb  train (out-of-fold)           classifier only         0.8370            0.9186               0.8311            0.8739        0.8519
+9                 gaussian_nb  train (out-of-fold)  classifier + HMM (tuned)         0.8772            0.9956               0.9673            0.9209        0.9435
+10                gaussian_nb         student_test           classifier only         0.8226            0.9093               0.8333            0.8734        0.8529
+11                gaussian_nb         student_test  classifier + HMM (tuned)         0.8454            0.9941               0.9645            0.9286        0.9462
+12              decision_tree  train (out-of-fold)           classifier only         0.8598            0.9282               0.8454            0.8821        0.8633
+13              decision_tree  train (out-of-fold)  classifier + HMM (tuned)         0.9022            0.9909               0.9687            0.8743        0.9191
+14              decision_tree         student_test           classifier only         0.8518            0.9237               0.8507            0.8824        0.8662
+15              decision_tree         student_test  classifier + HMM (tuned)         0.8794            0.9895               0.9693            0.8526        0.9072
+16              random_forest  train (out-of-fold)           classifier only         0.8629            0.9307               0.8481            0.8820        0.8647
+17              random_forest  train (out-of-fold)  classifier + HMM (tuned)         0.9055            0.9956               0.9729            0.9174        0.9443
+18              random_forest         student_test           classifier only         0.8552            0.9246               0.8545            0.8824        0.8682
+19              random_forest         student_test  classifier + HMM (tuned)         0.8967            0.9945               0.9783            0.9227        0.9497
+20                   lightgbm  train (out-of-fold)           classifier only         0.8617            0.9280               0.8457            0.8818        0.8634
+21                   lightgbm  train (out-of-fold)  classifier + HMM (tuned)         0.9051            0.9963               0.9720            0.9276        0.9493
+22                   lightgbm         student_test           classifier only         0.8526            0.9225               0.8515            0.8830        0.8670
+23                   lightgbm         student_test  classifier + HMM (tuned)         0.8934            0.9953               0.9776            0.9333        0.9549
+24                    bagging  train (out-of-fold)           classifier only         0.8629            0.9308               0.8492            0.8828        0.8657
+25                    bagging  train (out-of-fold)  classifier + HMM (tuned)         0.9015            0.9911               0.9649            0.8943        0.9283
+26                    bagging         student_test           classifier only         0.8541            0.9237               0.8548            0.8842        0.8693
+27                    bagging         student_test  classifier + HMM (tuned)         0.8970            0.9888               0.9682            0.8895        0.9272
+28                        mlp  train (out-of-fold)           classifier only         0.8608            0.9327               0.8622            0.8859        0.8739
+29                        mlp  train (out-of-fold)  classifier + HMM (tuned)         0.8999            0.9890               0.9735            0.8801        0.9245
+30                        mlp         student_test           classifier only         0.8569            0.9290               0.8749            0.8901        0.8825
+31                        mlp         student_test  classifier + HMM (tuned)         0.8957            0.9864               0.9767            0.8731        0.9220
