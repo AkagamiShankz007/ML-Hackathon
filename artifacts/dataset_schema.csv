@@ -1,0 +1,9 @@
+file_type,column_index,column_name,unit_or_encoding,parsed_dtype,header,observed_splits
+.track,0,longitude,degrees,float64,False,"train, student_test"
+.track,1,latitude,degrees,float64,False,"train, student_test"
+.track,2,timestamp,seconds,float64,False,"train, student_test"
+.nodes,0,longitude,degrees,float64,False,"train, student_test"
+.nodes,1,latitude,degrees,float64,False,"train, student_test"
+.arcs,0,from_node_id,0-based node index,int64,False,"train, student_test"
+.arcs,1,to_node_id,0-based node index,int64,False,"train, student_test"
+.route,0,arc_id,0-based .arcs row index,int64,False,"train, student_test"

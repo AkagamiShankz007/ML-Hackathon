@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 artifacts/cache/
 artifacts/candidate_features.csv
+model_selection_data/*.csv

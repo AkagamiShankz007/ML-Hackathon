@@ -1,0 +1,35 @@
+split,trip_id,anomaly,observed,threshold,handling_or_note
+train,00000001,high_weak_component_count,175.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000001,high_candidate_miss_rate,0.1574144486692015,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000002,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000003,high_candidate_miss_rate,0.17174177831912302,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000004,many_long_sampling_gaps,320.0,>300 intervals longer than 5 seconds,Retain the fixes; do not interpolate; invalidate motion context after each gap.
+train,00000018,high_candidate_miss_rate,0.10554089709762533,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000019,disconnected_reference_route_arcs,3.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000028,high_candidate_miss_rate,0.11809256661991585,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000029,high_candidate_miss_rate,0.10914051841746249,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000031,high_candidate_miss_rate,0.1314487632508834,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000032,high_weak_component_count,126.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000033,high_candidate_miss_rate,0.6613620807665982,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000033,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000035,high_weak_component_count,119.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000041,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000042,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000043,high_weak_component_count,421.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000043,high_candidate_miss_rate,0.15460809646856158,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000054,high_weak_component_count,213.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000054,high_candidate_miss_rate,0.37099363123284834,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000055,high_candidate_miss_rate,0.15210355987055016,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000069,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000074,high_weak_component_count,118.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000075,disconnected_reference_route_arcs,2.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000078,extreme_sampling_gap,52810.0,>3600 seconds (1 hour),Likely trip interruption; no path is inferred across this interval.
+train,00000079,high_candidate_miss_rate,0.17126269956458637,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000080,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000086,high_weak_component_count,193.0,>100 weak components,Inspect graph fragments before path decoding.
+train,00000086,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000089,high_candidate_miss_rate,0.11074918566775244,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+train,00000089,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.
+train,00000090,extreme_sampling_gap,153064.0,>3600 seconds (1 hour),Likely trip interruption; no path is inferred across this interval.
+train,00000093,high_candidate_miss_rate,0.14368290668868702,>10% of observations lack the reference arc among candidates,"Review candidate generation for this trip; this is coverage, not model accuracy."
+student_test,00000076,disconnected_reference_route_arcs,1.0,consecutive arcs should have matching end/start node IDs,Reference sequence is retained but flagged; verify encoding/route limitations.

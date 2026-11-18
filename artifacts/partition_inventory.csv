@@ -1,0 +1,4 @@
+split,expected_trips,actual_trips,available
+train,80,80,True
+student_test,10,10,True
+evaluator_test,10,0,False

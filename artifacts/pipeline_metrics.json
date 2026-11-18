@@ -3,7 +3,7 @@
   "student_test_observations": 19160,
   "candidate_rows": 3641232,
   "positive_candidate_rows": 207774,
-  "median_candidate_miss_rate": 0.03864946535606634,
+  "median_candidate_miss_rate": 0.038649465356066365,
   "features": [
     "distance_m",
     "log_distance",
@@ -12,8 +12,13 @@
     "log_segment_length",
     "bearing_delta",
     "gps_speed_mps",
-    "gps_gap_s",
-    "in_reference_route"
+    "log_gps_gap_s",
+    "motion_valid"
   ],
-  "folium_map": "C:\\PESU\\hektan\\artifacts\\00000001_route_map.html"
+  "long_gaps_gt_5s_train": 1216,
+  "long_gaps_gt_5s_student_test": 44,
+  "invalid_coordinate_rows_removed": 0,
+  "invalid_timestamp_rows_removed": 0,
+  "exact_duplicates_removed": 0,
+  "folium_map": "artifacts/dataset_exploration_map.html"
 }
