@@ -33,7 +33,7 @@ python -m pip install -r requirements.txt          # Python 3.11
 .\scripts\run_ui.ps1 <laptop-1-ip>            # or: ./scripts/run_ui.sh <laptop-1-ip>       -> http://localhost:5173/?api=http://<laptop-1-ip>:8000
 ```
 
-Single machine: `.\run.ps1 student_test` (Windows) / `./run.sh student_test` starts both. Allow inbound TCP 8000 on laptop 1.
+Allow inbound TCP 8000 on laptop 1 (Windows Firewall).
 Every request is logged to the console and `logs/api.log` (show the console to the evaluator).
 
 * The API serves `<PATHSNAP_DATA_DIR>/<PATHSNAP_SERVE_PARTITION>/<trip>/<trip>.{track,nodes,arcs[,route]}`
