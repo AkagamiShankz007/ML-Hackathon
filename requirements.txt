@@ -4,3 +4,5 @@ pyarrow
 scipy
 matplotlib
 folium
+scikit-learn>=1.2,<2.0
+joblib
